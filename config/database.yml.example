@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  database: maykastudio-development
+
+test:
+  <<: *default
+  database: maykastudio-test
+
+production:
+  <<: *default
+  database: maykastudio-production
