@@ -2,6 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   has_many :permissions, dependent: :destroy
+  has_many :projects, dependent: :destroy
 
   validates_presence_of :email
 
