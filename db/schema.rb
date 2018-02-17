@@ -25,8 +25,7 @@ ActiveRecord::Schema.define(version: 20180215141556) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.string "preview_code"
-    t.string "view_code"
+    t.string "code"
     t.boolean "published", default: true
     t.integer "download_count", default: 0
     t.bigint "user_id"

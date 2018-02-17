@@ -1,0 +1,5 @@
+h1 = @project.title
+
+.b-project__actions
+  = link_to 'Изменить', edit_manage_project_path(@project)
+  = link_to 'Удалить', manage_project_path(@project), method: :delete, data: { confirm: t('manage.confirm') }

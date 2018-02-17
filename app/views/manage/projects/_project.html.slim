@@ -1,0 +1,12 @@
+.b-project__item
+  = link_to manage_project_path(project), class: 'b-project__item-poster-wrap' do
+    = evil_icon 'ei-image', size: :l
+
+  .b-project__item-actions-wrap
+    = link_to project.title, manage_project_path(project), class: 'b-project__item-link'
+
+    .b-project__item-actions
+      = link_to edit_manage_project_path(project) do
+        = evil_icon 'ei-pencil', size: :s
+      = link_to manage_project_path(project), method: :delete, data: { confirm: t('manage.confirm') } do
+        = evil_icon 'ei-trash', size: :s

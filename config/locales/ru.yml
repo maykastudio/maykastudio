@@ -1,2 +1,19 @@
 ru:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      project:
+        title: Название проекта
+        published: Опубликован
+        code: Код
+        download_count: Доступно для скачивания
+
+    errors:
+      models:
+        project:
+          attributes:
+            title:
+              blank: У проекта должен быть заголовок
+            download_count:
+              blank: Не может быть пустым

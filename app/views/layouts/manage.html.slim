@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Manage
+    = csrf_meta_tags
+    = stylesheet_pack_tag 'manage'
+  body.l-manage
+    = render 'layouts/manage/header'
+    main.b-main
+      .b-container
+        p.notice = notice
+        p.alert = alert
+        = yield
+    = render 'layouts/manage/footer'
+    = evil_icons_sprite
+    = javascript_pack_tag 'manage'

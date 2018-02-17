@@ -1,0 +1,14 @@
+= simple_form_for [:manage, @project] do |f|
+  fieldset
+    = f.input :title
+  fieldset
+    = f.input :download_count
+  - if @project.persisted?
+    fieldset
+      = f.input :code, input_html: { disabled: :disabled }
+  fieldset
+    = f.input :published
+
+  .b-form__actions
+    = f.submit 'Сохранить'
+    = link_to 'Отмена', manage_projects_path, class: 'b-form__actions-cancel'

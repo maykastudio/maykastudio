@@ -5,15 +5,20 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'cancancan',                       '~> 2.0'
+gem 'cancancan',                       '=1.15.0'
 gem 'coffee-rails',                    '~> 4.2'
 gem 'devise'
 gem 'devise-i18n'
 gem 'enumerize'
+gem 'evil_icons'
+gem 'inherited_resources'
 gem 'pg',                              '~> 0.21'
 gem 'puma',                            '~> 3.7'
 gem 'rails',                           '~> 5.1.5'
+gem 'react-rails'
 gem 'sass-rails',                      '~> 5.0'
+gem 'simple_form'
+gem 'slim-rails'
 gem 'uglifier',                        '>= 1.3.0'
 gem 'webpacker'
 
@@ -33,7 +38,8 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers',              '~> 3.1'
+  gem 'simplecov'
 end

@@ -1,21 +1,16 @@
 class Project < ApplicationRecord
   belongs_to :user
 
-  validates_presence_of :title
+  validates_presence_of :title, :download_count
 
   before_create :generate_secret_codes
 
   private
 
   def generate_secret_codes
-    self.preview_code = loop do
+    self.code = loop do
       random_code = SecureRandom.hex(3)
-      break random_code unless Project.exists?(preview_code: random_code)
-    end
-
-    self.view_code = loop do
-      random_code = SecureRandom.hex(3)
-      break random_code unless Project.exists?(view_code: random_code)
+      break random_code unless Project.exists?(code: random_code)
     end
   end
 end
@@ -26,8 +21,7 @@ end
 #
 #  id             :integer          not null, primary key
 #  title          :string
-#  preview_code   :string
-#  view_code      :string
+#  code           :string
 #  published      :boolean          default(TRUE)
 #  download_count :integer          default(0)
 #  user_id        :integer

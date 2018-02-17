@@ -12,12 +12,8 @@ RSpec.describe Project, type: :model do
   describe "#generate_secret_codes" do
     let(:project){ create(:project) }
 
-    it "should have secret preview_code" do
-      expect(project.preview_code.present?).to be_truthy
-    end
-
-    it "should have secret view_code" do
-      expect(project.view_code.present?).to be_truthy
+    it "should have secret code" do
+      expect(project.code.present?).to be_truthy
     end
   end
 
