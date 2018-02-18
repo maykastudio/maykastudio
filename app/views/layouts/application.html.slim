@@ -2,11 +2,18 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content=("IE=Edge,chrome=1") http-equiv="X-UA-Compatible" /
+    meta content=("width=device-width, initial-scale=1.0, user-scalable=no") name="viewport" /
+    meta content=("yes") name="apple-mobile-web-app-capable"
+    meta content=("white") name="apple-mobile-web-app-status-bar-style"
+    meta content=("") name="apple-itunes-app"
     title Maykastudio
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
-  body
-    p.notice= notice
-    p.alert= alert
-    = yield
+    = stylesheet_pack_tag 'application', media: 'all'
+  body.l-public
+    = render 'layouts/public/header'
+    main.b-main
+      .b-container
+        = yield
+    = render 'layouts/public/footer'
+    = javascript_pack_tag 'application'

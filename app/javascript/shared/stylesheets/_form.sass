@@ -42,14 +42,20 @@ input[type='email'], input[type='number'], input[type='password'], input[type='s
   &:disabled
     background-color: #f2f2f2
 
+  &.is-error
+    border-color: $red
+    box-shadow: 0 0 0 3px rgba(208,2,27,0.15)
+    outline: none
+
 input[type="checkbox"], [type="radio"]
   margin: 10px
 
-input[type="button"], input[type="submit"]
-  border: none
+input[type="button"], input[type="submit"], button
   background: $blue
   border-radius: 100px
+  border: none
   color: #fff
+  cursor: pointer
   padding: 10px 25px
 
   &:focus

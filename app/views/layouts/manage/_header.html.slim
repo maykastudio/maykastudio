@@ -1,13 +1,12 @@
-body
-  header.b-header
-    .b-container
-      .b-header__content
-        ul.b-header__menu
-          li.b-header__menu-item
-            = link_to 'Проекты', manage_projects_path, class: 'b-header__menu-link'
-          li.b-header__menu-item
-            = link_to 'Добавить', new_manage_project_path, class: 'b-header__menu-link'
+header.b-header
+  .b-container
+    .b-header__content
+      ul.b-header__menu
+        li.b-header__menu-item
+          = link_to 'Проекты', manage_projects_path, class: 'b-header__menu-link'
+        li.b-header__menu-item
+          = link_to 'Добавить', new_manage_project_path, class: 'b-header__menu-link'
 
-        .b-account
-          span.b-account__email = current_user.email
-          = link_to 'Выйти', destroy_user_session_path, method: :delete
+      .b-account
+        span.b-account__email = current_user.email
+        = link_to 'Выйти', destroy_user_session_path, method: :delete
