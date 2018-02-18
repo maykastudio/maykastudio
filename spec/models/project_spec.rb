@@ -17,4 +17,17 @@ RSpec.describe Project, type: :model do
     end
   end
 
+  describe "#update_images_position" do
+    let!(:project){ create(:project) }
+    let(:images){ 2.times.map{ create(:image, project: project) } }
+    
+    it "should set image position" do
+      project.images.each do |image|
+        expect(image.position.present?).to be_truthy
+      end
+    end
+
+  end
+  
+
 end

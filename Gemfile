@@ -6,12 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 gem 'cancancan',                       '=1.15.0'
+gem 'carrierwave',                     '~> 1.0'
 gem 'coffee-rails',                    '~> 4.2'
 gem 'devise'
 gem 'devise-i18n'
 gem 'enumerize'
 gem 'evil_icons'
 gem 'inherited_resources'
+gem 'mini_magick'
 gem 'pg',                              '~> 0.21'
 gem 'puma',                            '~> 3.7'
 gem 'rails',                           '~> 5.1.5'

@@ -1,6 +1,9 @@
 .b-project__item
   = link_to manage_project_path(project), class: 'b-project__item-poster-wrap' do
-    = evil_icon 'ei-image', size: :l
+    - if project.image.present?
+      = image_tag project.image.file.thumbnail.url
+    - else
+      = evil_icon 'ei-image', size: :l
 
   .b-project__item-actions-wrap
     = link_to project.title, manage_project_path(project), class: 'b-project__item-link'

@@ -1,5 +1,3 @@
-@import 'variables'
-
 .b-projects__list
   display: flex
   flex-wrap: wrap
@@ -8,6 +6,12 @@
 .b-project__item
   padding: 20px
   width: calc(25% - 40px)
+
+  @include respond-to('iphone')
+    border-bottom: 1px solid #f2f2f2
+    margin: 0 0 25px 0
+    padding: 0 0 10px 0
+    width: 100%
 
 .b-project__item-poster-wrap
   display: flex
@@ -34,3 +38,13 @@
   color: $blue
   font-size: 20px
   text-decoration: none
+
+.b-project
+
+  .input.file
+    display: none
+    visibility: hidden
+
+.b-project__title
+  @include respond-to('iphone')
+    font-size: 22px

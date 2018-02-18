@@ -1,0 +1,10 @@
+- if image.persisted?
+  .b-image__item
+    = image_tag image.file.thumbnail.url
+
+    .b-image__item-actions
+      = link_to manage_project_image_path(@project, image), method: :delete, data: { confirm: t('manage.confirm') } do
+        = evil_icon 'ei-trash'
+
+    .b-image__item-number
+      = image.position

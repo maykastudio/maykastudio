@@ -9,5 +9,5 @@ body
             = link_to 'Добавить', new_manage_project_path, class: 'b-header__menu-link'
 
         .b-account
-          = current_user.email
+          span.b-account__email = current_user.email
           = link_to 'Выйти', destroy_user_session_path, method: :delete

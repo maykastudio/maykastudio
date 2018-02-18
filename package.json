@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.2.2",
     "babel-preset-react": "^6.24.1",
+    "dropzone": "^5.3.0",
     "evil-icons": "^1.9.0",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.0",

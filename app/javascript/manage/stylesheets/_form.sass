@@ -1,5 +1,3 @@
-@import 'variables'
-
 fieldset
   padding: 0
   border: 0
@@ -10,11 +8,18 @@ fieldset
     align-items: center
     justify-content: flex-start
 
+    @include respond-to('iphone')
+      flex-direction: column
+
 label
   font-size: 16px
   font-weight: 500
   color: #4b4b4b
   width: 240px
+
+  @include respond-to('iphone')
+    margin-bottom: 10px
+    width: 290px
 
 input[type='email'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='text'], input[type='url'], textarea, select
   appearance: none
@@ -25,6 +30,9 @@ input[type='email'], input[type='number'], input[type='password'], input[type='s
   box-sizing: inherit
   padding: 10px 15px
   width: 300px
+
+  @include respond-to('iphone')
+    width: 255px
 
   &:focus
     border-color: $blue

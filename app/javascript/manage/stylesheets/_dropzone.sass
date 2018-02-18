@@ -1,0 +1,43 @@
+.dz-default
+  background: #f2f2f2
+  border-radius: 3px
+  border: 4px dashed #aaa
+  color: #999
+  margin: 20px 0
+  padding: 40px
+  text-align: center
+
+  &:hover
+    cursor: pointer
+
+.dz-preview
+  border-radius: 5px
+  border: 5px solid #f2f2f2
+  display: inline-block
+  margin: 0 10px 20px
+  padding: 0px
+  width: 120px
+
+  @include respond-to('iphone')
+    margin: 0 7px 14px
+
+  .dz-details
+    display: none
+    visibility: hidden
+
+  .dz-progress
+    display: none
+    visibility: hidden
+
+  .dz-error-message
+    display: none
+    visibility: hidden
+
+  .dz-success-mark
+    display: none
+    visibility: hidden
+
+  .dz-error-mark
+    display: none
+    visibility: hidden
+

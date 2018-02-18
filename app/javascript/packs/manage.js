@@ -3,9 +3,9 @@
 import 'normalize.css';
 import '../vendor/evil-icons/evil-icons';
 
-import '../manage/stylesheets/base';
-import '../manage/stylesheets/form';
-import '../manage/stylesheets/projects';
+import '../vendor/dropzone/dropzone.js';
+
+import '../manage/stylesheets/manage';
 
 import Rails from 'rails-ujs';
 

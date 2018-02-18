@@ -1,5 +1,14 @@
-h1 = @project.title
+.b-project
+  h1.b-project__title = @project.title
 
-.b-project__actions
-  = link_to 'Изменить', edit_manage_project_path(@project)
-  = link_to 'Удалить', manage_project_path(@project), method: :delete, data: { confirm: t('manage.confirm') }
+  .b-project__actions
+    = link_to 'Изменить', edit_manage_project_path(@project)
+    = link_to 'Удалить', manage_project_path(@project), method: :delete, data: { confirm: t('manage.confirm') }
+
+  = simple_form_for([:manage, @project, @project.images.new], html: { multipart: true, class: 'dropzone' } ) do |f|
+    = f.input :file, as: :file, input_html: { multiple: true }
+
+  h3 Загруженные файлы
+
+  .b-images__list
+    = render @project.images
