@@ -9,6 +9,27 @@ class Project < ApplicationRecord
   before_create :generate_secret_codes
   after_commit :update_images_position
 
+  scope :published, ->{ where(published: true) }
+
+  def to_json
+    {
+      code: code,
+      title: title,
+      download_count: download_count - images.selected.count,
+      images: images.map{ |i| i.to_json }
+    }
+  end
+
+  def select_images(imgs)
+    imgs.take(self.download_count).each do |image_id|
+      image = images.find(image_id)
+
+      if image
+        image.update_attributes(selected: true)
+      end
+    end
+  end
+
   private
 
   def generate_secret_codes

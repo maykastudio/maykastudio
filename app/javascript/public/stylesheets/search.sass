@@ -6,6 +6,16 @@
   margin: 100px 0
 
 .b-code__form
+  
+  @include respond-to('sm-tablet')
+    display: flex
+    align-items: center
+    justify-content: center
+
+  @include respond-to('iphone')
+    display: flex
+    align-items: center
+    justify-content: center
 
 .b-code__form-title
   font-size: 22px
@@ -15,3 +25,9 @@
 .b-code__form-input
   margin-right: 10px
   width: 160px
+
+  @include respond-to('sm-tablet')
+    width: 120px !important
+
+  @include respond-to('iphone')
+    width: 120px !important

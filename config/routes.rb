@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     root to: "projects#index"
   end
 
+  resources :projects, only: [:show], path: '' do
+    post :select, on: :member
+  end
+
   root to: "home#index"
 end

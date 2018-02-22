@@ -7,26 +7,26 @@
     @media only screen and (min-width: $md-desktop) and (max-width: 1259px)
       @content
 
-  @else if $media == 'tablet'
-    @media only screen and (min-width: $tablet) and (max-width: 1023px)
-      @content
-
   @else if $media == 'tablet-landscape'
     @media only screen and (min-device-width: $tablet) and (max-device-width: 1024px) and (orientation: landscape)
       @content
 
-  @else if $media == 'sm-tablet'
-    @media only screen and (min-width: $sm-tablet) and (max-width: 767px)
+  @else if $media == 'tablet'
+    @media only screen and (min-device-width: $tablet) and (max-device-width: 1023px)
       @content
 
   @else if $media == 'sm-tablet-landscape'
-    @media only screen  and (min-device-width: $sm-tablet) and (max-device-width: 736px) and (orientation: landscape)
+    @media only screen and (min-device-width: $sm-tablet) and (max-device-width: 736px) and (orientation: landscape)
+      @content
+
+  @else if $media == 'sm-tablet'
+    @media only screen and (max-device-width: $sm-tablet) and (max-width: 767px)
       @content
 
   @else if $media == 'iphone-landscape'
-    @media only screen and (min-width: $iphone) and (max-width: 568px) and (orientation: landscape)
+    @media only screen and (min-device-width: $iphone) and (max-device-width: 568px) and (orientation: landscape)
       @content
 
   @else if $media == 'iphone'
-    @media only screen and (max-width: $iphone)
+    @media only screen and (max-device-width: $iphone)
       @content

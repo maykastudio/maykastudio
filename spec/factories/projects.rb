@@ -6,5 +6,13 @@ FactoryBot.define do
     trait :invalid do
       title { nil }
     end
+
+    trait :published do
+      published { true }
+    end
+
+    trait :hidden do
+      published { false }
+    end
   end
 end

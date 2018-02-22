@@ -85,7 +85,7 @@ RSpec.describe Manage::ProjectsController, type: :controller do
 
       it 'assigns project to @project' do
         process :edit, method: :get, params: { id: project.id }
-        expect(project).to eq(assigns(:project))
+        expect(assigns(:project)).to eq(project)
       end
 
       it do

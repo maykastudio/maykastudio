@@ -90,9 +90,32 @@ body
 
 .b-container
   margin: 0 auto
+  width: 1200px
+
+  @include respond-to('md-desktop')
+    padding: 0 15px
+    width: calc(100% - 30px)
+
+  @include respond-to('tablet-landscape')
+    padding: 0 15px
+    width: calc(100% - 30px)
+
+  @include respond-to('tablet')
+    padding: 0 15px
+    width: calc(100% - 30px)
+
+  @include respond-to('sm-tablet-landscape')
+    padding: 0 15px
+    width: calc(100% - 30px)
+
+  @include respond-to('sm-tablet')
+    padding: 0 15px
+    width: calc(100% - 30px)
+
+  @include respond-to('iphone-landscape')
+    padding: 0 15px
+    width: calc(100% - 30px)
 
   @include respond-to('iphone')
     padding: 0 15px
-    width: 290px
-
-  width: 1200px
+    width: calc(100% - 30px)

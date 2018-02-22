@@ -11,15 +11,15 @@ fieldset
     @include respond-to('iphone')
       flex-direction: column
 
-label
-  font-size: 16px
-  font-weight: 500
-  color: #4b4b4b
-  width: 240px
+  label
+    font-size: 16px
+    font-weight: 500
+    color: #4b4b4b
+    width: 240px
 
-  @include respond-to('iphone')
-    margin-bottom: 10px
-    width: 290px
+    @include respond-to('iphone')
+      margin-bottom: 10px
+      width: 290px
 
 input[type='email'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='text'], input[type='url'], textarea, select
   appearance: none
@@ -51,6 +51,7 @@ input[type="checkbox"], [type="radio"]
   margin: 10px
 
 input[type="button"], input[type="submit"], button
+  transition: all ease-in 0.2s
   background: $blue
   border-radius: 100px
   border: none
@@ -62,6 +63,12 @@ input[type="button"], input[type="submit"], button
     border: none
     box-shadow: 0 0 0 3px rgba(131,192,253,0.50)
     outline: none
+
+  &:disabled
+    background: #4a4a4a
+
+    &:focus
+      box-shadow: 0 0 0 3px rgba(74,74,74,0.15)
 
 .simple_form
   .field_with_errors

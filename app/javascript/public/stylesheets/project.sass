@@ -1,0 +1,221 @@
+.b-project
+  margin: 40px 0
+
+  @include respond-to('md-desktop')
+    margin: 20px 0
+
+  @include respond-to('tablet-landscape')
+    margin: 20px 0
+
+  @include respond-to('tablet')
+    margin: 20px 0
+
+  @include respond-to('sm-tablet-landscape')
+    margin: 20px 0
+
+  @include respond-to('sm-tablet')
+    margin: 20px 0
+  
+  @include respond-to('iphone-landscape')
+    margin: 20px 0
+
+  @include respond-to('iphone')
+    margin: 15px 0
+
+  h1
+    font-size: 22px
+    color: #000
+    letter-spacing: 0.41px
+
+    @include respond-to('iphone-landscape')
+      margin: 0 
+
+  h2
+    font-size: 18px
+    color: #4a4a4a
+    letter-spacing: 0.33px
+    font-weight: 100
+
+.b-project__header
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  @include respond-to('md-desktop')
+    margin-bottom: 15px
+
+  @include respond-to('tablet-landscape')
+    margin-bottom: 15px
+
+  @include respond-to('tablet')
+    margin-bottom: 15px
+
+  @include respond-to('sm-tablet-landscape')
+    margin-bottom: 15px
+
+  @include respond-to('sm-tablet')
+    flex-wrap: wrap
+
+    .b-project__header-title
+      flex-basis: 100%
+
+      h2
+        margin-bottom: 15px
+        
+    .b-project__actions
+      align-items: center
+      display: flex
+      flex-basis: 100%
+      justify-content: space-between
+      margin-bottom: 15px
+
+  @include respond-to('iphone-landscape')
+    margin-bottom: 10px  
+
+  @include respond-to('iphone')
+    flex-wrap: wrap
+
+    .b-project__header-title
+      flex-basis: 100%
+
+      h2
+        margin-bottom: 15px
+    
+    .b-project__actions
+      align-items: center
+      display: flex
+      flex-basis: 100%
+      justify-content: space-between
+      margin-bottom: 15px
+  
+.b-project__selection-toggle
+  background: $green
+
+  &:focus
+    box-shadow: 0 0 0 3px rgba(1,217,147,0.5)
+
+.b-project__selection-save
+  margin-left: 15px
+
+.b-project__images
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+
+.b-image__item
+  margin: 20px 25px
+  position: relative
+  height: 250px
+  width: 250px
+
+  @include respond-to('md-desktop')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(25% - 20px)
+
+    img
+      width: 100%
+
+  @include respond-to('tablet-landscape')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(25% - 20px)
+
+    img
+      width: 100%
+
+  @include respond-to('tablet')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(33.33% - 20px)
+
+    img
+      width: 100%
+
+  @include respond-to('sm-tablet-landscape')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(33.33% - 20px)
+
+    img
+      width: 100%
+
+  @include respond-to('sm-tablet')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(50% - 20px)
+
+    img
+      width: 100%
+
+  @include respond-to('iphone-landscape')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(50% - 20px)
+
+    img
+      width: 100%
+
+  @include respond-to('iphone')
+    padding: 0
+    margin: 0 10px 20px 10px
+    height: auto
+    width: calc(50% - 20px)
+
+    img
+      width: 100%
+
+  &.is-selected
+    img
+      border: 5px solid $blue
+      margin: -5px
+
+    .b-image__number
+      background: $blue
+      color: #fff
+
+.b-image__item-link
+  display: block
+
+  &:focus
+    outline: none
+
+.b-image__number
+  transition: all ease-in 0.2s
+  background: #fff
+  border-radius: 25px
+  bottom: 5px
+  color: #4b4b4b
+  font-weight: bold
+  height: 30px
+  line-height: 30px
+  padding: 5px
+  position: absolute
+  right: 5px
+  text-align: center
+  width: 30px
+
+.b-image__item-label
+  transition: all ease-in 0.2s
+  cursor: pointer
+
+.b-image__item-input
+  display: none
+  visibility: hidden
+
+.b-image__item-input:checked + label
+  border-radius: 2px
+
+  img
+    border: 5px solid $blue
+    margin: -5px
+
+  .b-image__number
+    background: $blue
+    color: #fff
