@@ -14,8 +14,7 @@ html
     = render 'layouts/manage/header'
     main.b-main
       .b-container
-        p.notice = notice
-        p.alert = alert
+        = render 'layouts/manage/flash'
         = yield
     = render 'layouts/manage/footer'
     = evil_icons_sprite
