@@ -21,6 +21,7 @@
 public/posters/
 public/recipes/
 public/uploads/
+public/test_uploads/
 public/*.zip
 public/assets/
 public/packs/
