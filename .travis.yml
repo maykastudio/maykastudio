@@ -1,0 +1,22 @@
+language: ruby
+cache: bundler
+
+rvm:
+  - 2.3.5
+
+services:
+  - postgresql
+
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+
+before_script:
+  - cp config/secrets.travis.yml config/secrets.yml
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+addons:
+  code_climate:
+    repo_token: c692d3456e17137a73cc36de50f26a828f1b9a5027cad4163f8c5fab4104d578
