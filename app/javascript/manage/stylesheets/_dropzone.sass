@@ -1,3 +1,8 @@
+form.dropzone
+  clear: both
+  display: block
+  overflow: hidden
+  
 .dz-default
   background: #f2f2f2
   border-radius: 3px
@@ -11,12 +16,28 @@
     cursor: pointer
 
 .dz-preview
+  transition: all ease-in 0.2s
   border-radius: 5px
   border: 5px solid #f2f2f2
-  display: inline-block
+  display: block
+  float: left
   margin: 0 10px 20px
   padding: 0px
   width: 120px
+
+  &.dz-success
+    border-color: $blue
+
+    .dz-progress
+      display: none
+      visibility: hidden
+
+  &.dz-error
+    border-color: $red
+
+    .dz-progress
+      display: none
+      visibility: hidden
 
   @include respond-to('iphone')
     margin: 0 7px 14px
@@ -25,9 +46,21 @@
     display: none
     visibility: hidden
 
+  .dz-image
+    height: 120px
+    width: 120px
+
   .dz-progress
-    display: none
-    visibility: hidden
+    height: 5px
+    margin: 3px 0
+    width: 100%
+
+    .dz-upload
+      transition: all ease-in 0.2s
+      display: block
+      border-radius: 2px
+      background: $blue
+      height: 100%
 
   .dz-error-message
     display: none
