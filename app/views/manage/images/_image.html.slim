@@ -6,5 +6,5 @@
       = link_to manage_project_image_path(@project, image), method: :delete, data: { confirm: t('manage.confirm') } do
         = evil_icon 'ei-trash'
 
-    .b-image__item-number
+    .b-image__item-number class=(image.selected? ? 'is-selected' : 'stub')
       = image.position
