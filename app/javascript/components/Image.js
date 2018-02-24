@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
+import Icon from './Icon';
+
 class Image extends Component {
 
   _isSelected = () => {
@@ -23,28 +25,30 @@ class Image extends Component {
   }
 
   render () {
-    const { image, isSelectMode } = this.props;
+    const { code, image, isSelectMode, isDownloadMode } = this.props;
 
     return (
       <Fragment>
-        { isSelectMode ? (
+        { isSelectMode && (
           <div className="b-image__item">
+            <a className="b-image__item-link b-image__item-link__preview" href="#" onClick={(e) => this._onClick(e)}>
+              <img src={image.url} />
+            </a>
             <input type="checkbox" 
                    className="b-image__item-input" 
                    id={image.id} 
                    checked={this._isSelected()}
                    onChange={(e) => this._onSelect(e)} />
             <label className="b-image__item-label" htmlFor={image.id}>
-              <img src={image.url} />
-              <span className="b-image__number">{image.position}</span>
+              <span className={'b-image__check ' + (this._isSelected() ? 'is-selected' : 'stub')}></span>
             </label>
           </div>
-        ) : (
-          <div className={'b-image__item ' + (image.selected ? 'is-selected' : 'stub')}>
-            <a className="b-image__item-link" href="#" onClick={(e) => this._onClick(e)}>
-              <img src={image.url} />
-            </a>
-          </div>
+        )} 
+        
+        { !isSelectMode && image.download && (
+          <a className="b-image__item is-selected" href={`${image.download}`} download>
+            <img src={image.url} />
+          </a>
         )}
       </Fragment>
     );
@@ -52,7 +56,9 @@ class Image extends Component {
 }
 
 Image.propTypes = {
+  code: PropTypes.string,
   image: PropTypes.object,
+  selected: PropTypes.array,
   isSelectMode: PropTypes.bool,
   onSelect: PropTypes.func
 };

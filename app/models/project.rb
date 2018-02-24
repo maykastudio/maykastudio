@@ -16,6 +16,7 @@ class Project < ApplicationRecord
       code: code,
       title: title,
       download_count: download_count - images.selected.count,
+      selected: images.selected.ids,
       images: images.map{ |i| i.to_json }
     }
   end

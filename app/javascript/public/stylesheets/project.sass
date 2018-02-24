@@ -94,9 +94,6 @@
   &:focus
     box-shadow: 0 0 0 3px rgba(1,217,147,0.5)
 
-.b-project__selection-save
-  margin-left: 15px
-
 .b-project__images
   display: flex
   flex-wrap: wrap
@@ -107,6 +104,9 @@
   position: relative
   height: 250px
   width: 250px
+
+  img
+    position: relative
 
   @include respond-to('md-desktop')
     padding: 0
@@ -172,34 +172,46 @@
       width: 100%
 
   &.is-selected
-    img
-      border: 5px solid $blue
-      margin: -5px
+    position: relative
 
-    .b-image__number
-      background: $blue
-      color: #fff
+    &::before
+      content: ''
+      background: rgba(255, 255, 255, 0.5)
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      z-index: 1
 
-.b-image__item-link
-  display: block
+    &::after
+      content: ''
+      background: url('../images/download.svg') no-repeat 50% 50%
+      border-radius: 25px
+      transition: all ease-in 0.2s
+      transform: translateX(-50%) translateY(-50%)
+      top: 50%
+      height: 85px
+      position: absolute
+      left: 50%
+      width: 85px
+      z-index: 10
 
-  &:focus
-    outline: none
+.b-image__item-link__preview
+  outline: none
 
-.b-image__number
-  transition: all ease-in 0.2s
-  background: #fff
+.b-image__check
+  background: url('../images/check.svg') no-repeat 50% 50%
   border-radius: 25px
-  bottom: 5px
-  color: #4b4b4b
-  font-weight: bold
-  height: 30px
-  line-height: 30px
-  padding: 5px
+  transition: all ease-in 0.2s
+  top: 5px
+  height: 45px
   position: absolute
   right: 5px
-  text-align: center
-  width: 30px
+  width: 45px
+
+  &.is-selected
+    background: url('../images/check-active.svg') no-repeat 50% 50%
 
 .b-image__item-label
   transition: all ease-in 0.2s
@@ -215,7 +227,3 @@
   img
     border: 5px solid $blue
     margin: -5px
-
-  .b-image__number
-    background: $blue
-    color: #fff

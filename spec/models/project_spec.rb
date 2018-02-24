@@ -37,6 +37,7 @@ RSpec.describe Project, type: :model do
         code: project.code,
         title: project.title,
         download_count: project.download_count,
+        selected: [],
         images: project.images.reload.map{ |i| i.to_json },
       }
 

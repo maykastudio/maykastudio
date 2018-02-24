@@ -14,8 +14,15 @@ class Image < ApplicationRecord
       position: position,
       url: file.thumbnail.url,
       preview: file.preview.url,
+      download: download_url,
       selected: selected
     }
+  end
+
+  private
+
+  def download_url
+    selected? ? file.url : nil
   end
 end
 

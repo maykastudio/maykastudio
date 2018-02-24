@@ -14,7 +14,8 @@ class Project extends Component {
 
     this.state = {
       project: {},
-      isSelectMode: false,
+      isSelectMode: true,
+      isDownloadMode: false,
       isPopupMode: false,
       popupImage: {},
       selected: [],
@@ -40,7 +41,10 @@ class Project extends Component {
       headers: headers,
     })
     .then(response => response.json())
-    .then(data => this.setState({ project: data, selectLeft: data.download_count }))
+    .then(data => this.setState({ 
+      project: data, 
+      selectLeft: data.download_count 
+    }))
     .catch(error => {
       console.log(error);
     }); 
@@ -95,6 +99,10 @@ class Project extends Component {
     }
   }
 
+  _isSaveDisabled = () => {
+    return Math.max(this.state.selected.length, this.state.project.selected) === 0;
+  }
+
   _onSave = (e) => {
     e.preventDefault()
 
@@ -113,7 +121,7 @@ class Project extends Component {
     })
     .then(response => {
       response.json();
-      this.setState({isSelectMode: false});
+      this.setState({isSelectMode: false, isDownloadMode: true});
       this._loadProject();
     })
     .catch(error => {
@@ -122,7 +130,7 @@ class Project extends Component {
   }
 
   render () {
-    const { project, isSelectMode, isPopupMode, popupImage, selected, selectLeft } = this.state;
+    const { project, isSelectMode, isDownloadMode, isPopupMode, popupImage, selected, selectLeft } = this.state;
     
     return (
       <Fragment>
@@ -131,22 +139,20 @@ class Project extends Component {
             <div className="b-project__header">
               <div className="b-project__header-title">
                 <h1>{project.title}</h1>
-                { isSelectMode && (
-                  <h2>Осталось выбрать {selectLeft}</h2>
-                )}
+                <div>
+                  <h2>Выберите фотографии для скачивания</h2>
+                  <h2>Осталось <strong>{selectLeft}</strong> фото</h2>
+                </div>
               </div>
 
               <div className="b-project__actions">
-                <button className="b-project__selection-toggle" disabled={selectLeft < 1 && !isSelectMode} onClick={(e) => this._onSelectToggle(e)}>
-                  { isSelectMode ? (
-                    <span>Отмена</span>
-                  ) : (
-                    <span>Выбрать</span>
-                  )}
-                </button>
-                { isSelectMode && (
-                  <button className="b-project__selection-save" onClick={(e) => this._onSave(e)}>
-                    Сохранить
+                { isSelectMode ? (
+                  <button className="b-project__selection-save" disabled={this._isSaveDisabled()} onClick={(e) => this._onSave(e)}>
+                    Скачать
+                  </button>
+                ) : (
+                  <button className="b-project__selection-toggle" onClick={(e) => this._onSelectToggle(e)}>
+                    Назад
                   </button>
                 )}
               </div>
@@ -155,9 +161,11 @@ class Project extends Component {
             <div className="b-project__images">
               {project.images.map((image, index) => 
                 <Image key={index} 
+                       code={project.code}
                        image={image} 
                        selected={selected}
                        isSelectMode={isSelectMode} 
+                       isDownloadMode={isDownloadMode}
                        onClick={() => this._onOpenModal(image)} 
                        onSelect={() => this._onSelect(image)}
                        onRemoveSelection={() => this._onRemoveSelection(image)} />

@@ -17,6 +17,7 @@ RSpec.describe Image, type: :model do
         position: image.position,
         url: image.file.thumbnail.url,
         preview: image.file.preview.url,
+        download: nil,
         selected: image.selected
       }
 
