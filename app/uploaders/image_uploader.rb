@@ -22,11 +22,22 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   version :preview do
-    process resize_to_fill: [500, 500]
+    process resize_and_pad: [850, 850, :transparent, 'Center']
+    process :watermark
   end
 
   version :thumbnail do
-    process resize_to_fill: [250, 250]
+    process resize_and_pad: [250, 250, :transparent, 'Center']
+  end
+
+  def watermark
+    watermark = "#{Rails.root}/app/assets/images/watermark.png"
+
+    manipulate! do |img|
+      img = img.composite(MiniMagick::Image.open(watermark), "png") do |c|
+        c.gravity "Center"
+      end
+    end
   end
 
   def extension_whitelist
