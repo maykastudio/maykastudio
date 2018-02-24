@@ -17,3 +17,7 @@ ru:
               blank: У проекта должен быть заголовок
             download_count:
               blank: Не может быть пустым
+
+  meta:
+    project:
+      description: Простотр проекта %{name}

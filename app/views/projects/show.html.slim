@@ -1,1 +1,14 @@
+- content_for(:meta) do
+  meta property='og:title' content= @project.title
+  meta property='og:description' content=(t('meta.project.description', name: @project.title))
+  meta property='og:url' content=(project_url(@project))
+
+  meta name='twitter:card' content=('summary_large_image')
+  meta name='twitter:title' content= @project.title
+  meta name='twitter:description' content=(t('meta.project.description', name: @project.title))
+
+  - if @project.image
+    meta property='og:image' content=(@project.image.file.og.url)
+    meta name='twitter:image' content=(@project.image.file.og.url)
+
 = react_component 'Project', code: @project.try(:code)

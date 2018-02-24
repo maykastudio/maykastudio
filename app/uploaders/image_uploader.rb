@@ -24,6 +24,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process :save_content_type_and_size_in_model
 
+  version :og do
+    process resize_to_fill: [968, 504]
+    process :watermark
+  end
+
   version :preview do
     process resize_and_pad: [850, 850, '#353535', 'Center']
     process :watermark

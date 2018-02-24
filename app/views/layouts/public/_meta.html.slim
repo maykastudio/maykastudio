@@ -1,0 +1,12 @@
+meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+meta content=("IE=Edge,chrome=1") http-equiv="X-UA-Compatible" /
+meta content=("width=device-width, initial-scale=1.0, user-scalable=no") name="viewport" /
+meta content=("yes") name="apple-mobile-web-app-capable"
+meta content=("white") name="apple-mobile-web-app-status-bar-style"
+meta content=("") name="apple-itunes-app"
+
+meta content='968' property=('og:image:width') 
+meta content='504' property=('og:image:height') 
+
+- if content_for?(:meta)
+  = content_for(:meta)
