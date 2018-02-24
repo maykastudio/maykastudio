@@ -10,7 +10,6 @@
 /config/cable.yml
 /config/database.yml
 /config/settings.yml
-/config/secrets.yml
 /coverage/
 /db/*.sqlite3
 /log/*.log

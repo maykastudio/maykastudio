@@ -26,6 +26,7 @@ gem 'uglifier',                        '>= 1.3.0'
 gem 'webpacker'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'rspec-rails',                   '~> 3.6'
   gem 'factory_bot_rails'
   gem 'ffaker'
