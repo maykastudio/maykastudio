@@ -30,11 +30,21 @@ end
 #
 # Table name: images
 #
-#  id         :integer          not null, primary key
-#  file       :text
-#  position   :integer
-#  selected   :boolean          default(FALSE)
-#  project_id :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  file         :text
+#  content_type :string
+#  file_size    :integer
+#  position     :integer
+#  selected     :boolean          default(FALSE)
+#  project_id   :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_images_on_project_id  (project_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (project_id => projects.id)
 #

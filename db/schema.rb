@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20180217063443) do
 
   create_table "images", force: :cascade do |t|
     t.text "file"
+    t.string "content_type"
+    t.integer "file_size"
     t.integer "position"
     t.boolean "selected", default: false
     t.bigint "project_id"

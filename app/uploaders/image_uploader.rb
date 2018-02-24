@@ -1,5 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
+
   CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Zа-яА-ЯёЁ0-9\.\_\-\+\s\:]/
 
   def store_dir
@@ -20,6 +21,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+
+  process :save_content_type_and_size_in_model
 
   version :preview do
     process resize_and_pad: [850, 850, :transparent, 'Center']
@@ -50,5 +53,12 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def filename
     @name ||= "#{md5}#{File.extname(super)}" if super
+  end
+
+  def save_content_type_and_size_in_model
+    if file && model
+      model.content_type = file.content_type
+      model.file_size = File.size(file.file)
+    end
   end
 end
