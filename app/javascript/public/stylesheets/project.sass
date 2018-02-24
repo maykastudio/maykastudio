@@ -35,6 +35,7 @@
     color: #4a4a4a
     letter-spacing: 0.33px
     font-weight: 100
+    margin: 5px 0
 
 .b-project__header
   display: flex
@@ -59,9 +60,6 @@
     .b-project__header-title
       flex-basis: 100%
 
-      h2
-        margin-bottom: 15px
-        
     .b-project__actions
       align-items: center
       display: flex
@@ -70,16 +68,13 @@
       margin-bottom: 15px
 
   @include respond-to('iphone-landscape')
-    margin-bottom: 10px  
+    margin-bottom: 0px  
 
   @include respond-to('iphone')
     flex-wrap: wrap
 
     .b-project__header-title
       flex-basis: 100%
-
-      h2
-        margin-bottom: 15px
     
     .b-project__actions
       align-items: center
@@ -87,7 +82,46 @@
       flex-basis: 100%
       justify-content: space-between
       margin-bottom: 15px
-  
+
+.b-project__header-select
+  position: relative
+  padding-left: 50px
+
+  &::before
+    content: ''
+    background: url('../images/check-active.svg') no-repeat 50% 50%
+    left: 0
+    top: 0
+    height: 45px
+    position: absolute
+    width: 45px
+
+  @include respond-to('iphone-landscape')
+    margin-bottom: 15px
+
+  @include respond-to('iphone')
+    margin-bottom: 10px
+
+.b-project__header-download
+  position: relative
+  padding-left: 50px
+  line-height: 45px
+
+  &::before
+    content: ''
+    background: url('../images/download-active.svg') no-repeat 50% 50%
+    left: 0
+    top: 0
+    height: 45px
+    position: absolute
+    width: 45px
+
+  @include respond-to('iphone-landscape')
+    margin-bottom: 15px
+
+  @include respond-to('iphone')
+    margin-bottom: 10px
+
 .b-project__selection-toggle
   background: $green
 
@@ -100,9 +134,9 @@
   justify-content: flex-start
 
 .b-image__item
+  height: 250px
   margin: 20px 25px
   position: relative
-  height: 250px
   width: 250px
 
   img

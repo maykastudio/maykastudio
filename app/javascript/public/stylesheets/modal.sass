@@ -1,11 +1,11 @@
 .ReactModal__Overlay
-  background-color: rgba(255, 255, 255, 0.95) !important
+  background-color: #353535 !important
 
 .ReactModal__Body--open
   overflow: hidden
 
 .b-modal__close
-  background: #bbb
+  background: #fff
   border-radius: 50px
   height: 28px
   padding: 10px
@@ -34,8 +34,11 @@
   &:hover
     background: $blue
 
+    .icon
+      fill: #fff
+
   .icon
-    fill: #fff
+    fill: #777
     position: absolute
     left: 11.5px
     top: 11.5px
@@ -50,3 +53,94 @@
     top: 50%
     transform: translateX(-50%) translateY(-50%)
     max-width: 90%
+    user-select: none
+
+.b-modal__prev, .b-modal__next 
+  background: #fff
+  border-radius: 50px
+  border-radius: 50px
+  height: 50px
+  position: absolute
+  text-align: center
+  top: 50%
+  width: 50px
+  z-index: 10
+
+  &:hover
+    background: $blue
+    cursor: pointer
+
+    .icon
+      fill: #fff
+
+  .icon
+    fill: #777
+    position: absolute
+    width: 50px
+    height: 50px
+    left: 0px
+    top: 0px
+
+.b-modal__prev
+  transform: translateX(10%) translateY(-50%)
+  left: 10%
+
+  @include respond-to('md-desktop')
+    transform: translateX(5%) translateY(-50%)
+    left: 5%
+
+  @include respond-to('tablet-landscape')
+    transform: translateX(10%) translateY(-50%)
+    left: 10%
+
+  @include respond-to('tablet')
+    transform: translateX(10px) translateY(-50%)
+    left: 10px
+
+  @include respond-to('sm-tablet-landscape')
+    transform: translateX(10%) translateY(-50%)
+    left: 10%
+
+  @include respond-to('sm-tablet')
+    transform: translateX(0) translateY(-50%)
+    left: 10px
+
+  @include respond-to('iphone-landscape')
+    transform: translateX(10%) translateY(-50%)
+    left: 10%
+
+  @include respond-to('iphone')
+    transform: translateX(0) translateY(-50%)
+    left: 10px
+
+.b-modal__next
+  transform: translateX(-10%) translateY(-50%)
+  right: 10%
+
+  @include respond-to('md-desktop')
+    transform: translateX(-5%) translateY(-50%)
+    right: 5%
+
+  @include respond-to('tablet-landscape')
+    transform: translateX(-10%) translateY(-50%)
+    right: 10%
+
+  @include respond-to('tablet')
+    transform: translateX(-10px) translateY(-50%)
+    right: 10px
+
+  @include respond-to('sm-tablet-landscape')
+    transform: translateX(-10%) translateY(-50%)
+    right: 10%
+
+  @include respond-to('sm-tablet')
+    transform: translateX(0) translateY(-50%)
+    right: 10px
+
+  @include respond-to('iphone-landscape')
+    transform: translateX(-10%) translateY(-50%)
+    right: 10%
+
+  @include respond-to('iphone')  
+    transform: translateX(0) translateY(-50%)
+    right: 10px

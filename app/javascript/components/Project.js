@@ -1,11 +1,8 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 
-import Modal from 'react-modal';
 import Image from './Image';
-import Icon from './Icon';
-
-Modal.setAppElement('main');
+import ImagePreview from "./ImagePreview";
 
 class Project extends Component {
 
@@ -67,6 +64,30 @@ class Project extends Component {
   _onCloseModal = (e) => {
     e.preventDefault();
     this.setState({isPopupMode: false});
+  }
+
+  _onPrev = (e) => {
+    e.preventDefault();
+
+    const { project, popupImage } = this.state;
+
+    let idx = _.indexOf(project.images, popupImage);
+
+    if (idx > 0) {
+      this.setState({popupImage: project.images[idx - 1]});
+    }
+  }
+
+  onNext = (e) => {
+    e.preventDefault();
+
+    const { project, popupImage } = this.state;
+
+    let idx = _.indexOf(project.images, popupImage);
+
+    if (idx + 1 < project.images.length) {
+      this.setState({popupImage: project.images[idx + 1]});
+    }
   }
 
   _onSelect = (image) => {
@@ -139,10 +160,16 @@ class Project extends Component {
             <div className="b-project__header">
               <div className="b-project__header-title">
                 <h1>{project.title}</h1>
-                <div>
-                  <h2>Выберите фотографии для скачивания</h2>
-                  <h2>Осталось <strong>{selectLeft}</strong> фото</h2>
-                </div>
+                { isSelectMode ? (
+                  <div className="b-project__header-select">
+                    <h2>Выберите фотографии для скачивания</h2>
+                    <h2>Осталось <strong>{selectLeft}</strong> фото</h2>
+                  </div>
+                ) : (
+                  <div className="b-project__header-download">
+                    <h2>Нажмите на фото для загрузки</h2>
+                  </div>
+                )}
               </div>
 
               <div className="b-project__actions">
@@ -176,20 +203,11 @@ class Project extends Component {
             <h1>Ничего не нашлось</h1>
         )}
 
-        <Modal
-          isOpen={isPopupMode}
-          onRequestClose={this.closeModal}
-          shouldCloseOnOverlayClick={true}
-          className={{
-            base: 'b-modal',
-            afterOpen: 'b-modal__open',
-            beforeClose: 'b-modal__close'
-          }}>
-            <a href="#" className="b-modal__close" onClick={(e) => this.closeModal(e)}>
-              <Icon name="ei-close" size="s" />
-            </a>
-            <img src={popupImage.preview} />
-        </Modal>
+        <ImagePreview image={popupImage} 
+                      isPopupMode={isPopupMode} 
+                      prev={(e) => this._onPrev(e)}
+                      next={(e) => this.onNext(e)}
+                      closeModal={(e) => this._onCloseModal(e)} />
       </Fragment>
     );
   }
