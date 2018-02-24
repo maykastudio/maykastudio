@@ -19,3 +19,5 @@ html
     = render 'layouts/manage/footer'
     = evil_icons_sprite
     = javascript_pack_tag 'manage'
+    - if Rails.env.production?
+      = render 'layouts/public/metrika'
