@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  namespace :api do
+    get :ping
+  end
   
   namespace :manage do
     resources :projects do
