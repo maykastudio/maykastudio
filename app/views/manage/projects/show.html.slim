@@ -1,5 +1,10 @@
 .b-project
-  h1.b-project__title = @project.title
+  .b-project__title
+    h1 = @project.title
+
+    .b-project__views
+      = evil_icon 'ei-eye', size: :s
+      = @project.views.count
 
   .b-project__actions
     = link_to 'Посмотреть', project_path(@project.code)

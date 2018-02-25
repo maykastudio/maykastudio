@@ -25,6 +25,9 @@
     fill: #aaa
 
 .b-project__actions
+  display: flex
+  flex-wrap: wrap
+
   a
     background: $blue
     border-radius: 25px
@@ -32,6 +35,9 @@
     text-decoration: none
     padding: 10px 15px
     margin: 0 10px
+
+    @include respond-to('iphone')
+      margin: 5px
 
 .b-project__item-actions-wrap
   margin: 10px 0
@@ -55,5 +61,17 @@
     visibility: hidden
 
 .b-project__title
+  display: flex
+  align-items: center
+  justify-content: space-between
+
   @include respond-to('iphone')
     font-size: 22px
+
+.b-project__views
+  color: #4a4a4a
+  display: flex
+  align-items: center
+  font-size: 18px
+  margin: 5px 0
+  

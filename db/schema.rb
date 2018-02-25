@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217063443) do
+ActiveRecord::Schema.define(version: 20180225141334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,20 @@ ActiveRecord::Schema.define(version: 20180217063443) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "views", force: :cascade do |t|
+    t.text "session"
+    t.text "user_agent"
+    t.string "viewable_type"
+    t.bigint "viewable_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_views_on_user_id"
+    t.index ["viewable_type", "viewable_id"], name: "index_views_on_viewable_type_and_viewable_id"
+  end
+
   add_foreign_key "images", "projects"
   add_foreign_key "permissions", "users"
   add_foreign_key "projects", "users"
+  add_foreign_key "views", "users"
 end

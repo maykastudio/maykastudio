@@ -4,6 +4,8 @@ class Project < ApplicationRecord
   has_many :images, -> { order(:position) }, dependent: :destroy
   has_one :image, -> { order('created_at asc') }, class_name: 'Image'
 
+  has_many :views, as: :viewable, dependent: :destroy
+
   validates_presence_of :title, :download_count
 
   before_create :generate_secret_codes
