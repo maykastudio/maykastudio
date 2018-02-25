@@ -107,6 +107,9 @@
   padding-left: 50px
   line-height: 45px
 
+  @include respond-to('iphone')
+    line-height: 1.3
+
   &::before
     content: ''
     background: url('../images/download-active.svg') no-repeat 50% 50%
@@ -230,6 +233,16 @@
       left: 50%
       width: 85px
       z-index: 10
+
+      @include respond-to('iphone')
+        background: url('../images/download-small.svg') no-repeat 50% 50%
+        height: 45px
+        width: 45px
+
+      @include respond-to('sm-tablet')
+        background: url('../images/download-small.svg') no-repeat 50% 50%
+        height: 45px
+        width: 45px
 
 .b-image__item-link__preview
   outline: none
