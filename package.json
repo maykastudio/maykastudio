@@ -13,7 +13,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-modal": "^3.2.1",
-    "react_ujs": "^2.4.4"
+    "react_ujs": "^2.4.4",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"
