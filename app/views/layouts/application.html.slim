@@ -5,6 +5,7 @@ html
     title Maykastudio
     = csrf_meta_tags
     = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
   body.l-public
     = render 'layouts/public/header'
     main.b-main
@@ -12,6 +13,5 @@ html
         = yield
     = render 'layouts/public/footer'
     = evil_icons_sprite
-    = javascript_pack_tag 'application'
     - if Rails.env.production?
       = render 'layouts/public/metrika'
