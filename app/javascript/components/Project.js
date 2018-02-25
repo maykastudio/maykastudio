@@ -23,15 +23,22 @@ class Project extends Component {
   }
 
   componentWillMount = () => {
+    console.log('--- componentWillMount ---');
+
     this._loadProject(); 
   }
 
   _loadProject = () => {
+    console.log('--- _loadProject ---');
+
     const { code } = this.props;
     const headers = {
       Accept: "application/json",
       "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
     };
+
+    console.log(code);
 
     fetch(`/${code}.json`, {
       method: "GET",
