@@ -1,5 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
+  include CarrierWave::ImageOptimizer
 
   CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Zа-яА-ЯёЁ0-9\.\_\-\+\s\:]/
 
@@ -27,15 +28,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :og do
     process resize_to_fill: [968, 504]
     process :watermark
+    process optimize: [{ quality: 50 }]
   end
 
   version :preview do
     process resize_and_pad: [850, 850, '#353535', 'Center']
     process :watermark
+    process optimize: [{ quality: 70 }]
   end
 
   version :thumbnail do
     process resize_and_pad: [250, 250, :transparent, 'Center']
+    process optimize: [{ quality: 50 }]
   end
 
   def watermark

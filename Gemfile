@@ -8,6 +8,7 @@ end
 gem 'cancancan',                       '=1.15.0'
 gem 'fog-aws'
 gem 'carrierwave',                     '~> 1.0'
+gem 'carrierwave-imageoptimizer'
 gem 'coffee-rails',                    '~> 4.2'
 gem 'devise'
 gem 'devise-i18n'
