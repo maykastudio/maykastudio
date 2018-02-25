@@ -4,11 +4,10 @@ import PropTypes from "prop-types";
 import Modal from 'react-modal';
 import Icon from './Icon';
 
-Modal.setAppElement('main');
-
 class ImagePreview extends Component {
 
   componentWillMount = () => {
+    Modal.setAppElement('main');
     this._bindKeyDownEvents();
   }
 
