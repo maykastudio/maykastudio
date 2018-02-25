@@ -2,6 +2,7 @@
   h1.b-project__title = @project.title
 
   .b-project__actions
+    = link_to 'Посмотреть', project_path(@project.code)
     = link_to 'Изменить', edit_manage_project_path(@project)
     = link_to 'Удалить', manage_project_path(@project), method: :delete, data: { confirm: t('manage.confirm') }
 
