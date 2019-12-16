@@ -86,7 +86,7 @@ GEM
       activesupport (>= 3.2)
     erubi (1.7.0)
     evil_icons (1.9.0)
-    excon (0.60.0)
+    excon (0.71.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
