@@ -64,7 +64,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.10)
     connection_pool (2.2.1)
     crass (1.0.4)
     database_cleaner (1.6.2)
@@ -111,8 +111,8 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
-    globalid (0.4.1)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
@@ -143,7 +143,7 @@ GEM
     mini_magick (4.8.0)
     mini_mime (1.0.0)
     mini_portile2 (2.4.0)
-    minitest (5.11.3)
+    minitest (5.17.0)
     multi_json (1.13.1)
     nio4r (2.2.0)
     nokogiri (1.10.8)
@@ -258,7 +258,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
